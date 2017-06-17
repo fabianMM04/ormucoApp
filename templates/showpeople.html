@@ -1,0 +1,26 @@
+<html>
+
+<body>
+
+{% for i in items %}
+
+<div>
+
+<p>{{i.name}}</p>
+
+<p>{{i.favorite_color}}</p>
+
+<p> {{i.cats_or_dog}} </p>
+
+<a href='{{url_for('editPerson', menu_id = i.id) }}'>Edit</a>
+
+</br>
+<a href = '{{url_for('deletePerson', menu_id = i.id ) }}'>Delete</a>
+
+</div>
+
+
+{% endfor %}
+</body>
+
+</html>
