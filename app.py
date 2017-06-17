@@ -30,6 +30,34 @@ def showPeople():
     items = session.query(Person).all()
     return render_template('showpeople.html', items=items)
 
+@app.route('/person/<int:person_id>/edit',methods=['GET', 'POST'])
+def editPerson(person_id):
+
+    editedPerson = session.query(Person).filter_by(id=person_id).one()
+    if request.method == 'POST':
+        if request.form['name']:
+            editedPerson.name = request.form['name']
+        if request.form['favorite_color']:
+            editedPerson.favorite_color = request.form['favorite_color']
+        if request.form['cats_or_dog']:
+            editedPerson.cats_or_dog = request.form['cats_or_dog']
+        session.add(editedPerson)
+        session.commit()
+        return redirect(url_for('showPeople'))
+    else:
+
+        return render_template('editmenuitem.html',item=editedPerson)
+
+@app.route('/person/<int:person_id>/delete',methods=['GET', 'POST'])
+def deletePerson(person_id):
+
+    itemToDelete = session.query(Person).filter_by(id=person_id).one()
+    if request.method == 'POST':
+        session.delete(itemToDelete)
+        session.commit()
+        return redirect(url_for('showPeople'))
+    else:
+        return render_template('deleteperson.html', item=itemToDelete)
 
 if __name__ == '__main__':
     app.debug = True
