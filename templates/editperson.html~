@@ -23,7 +23,7 @@
 <dl>
 <input type='submit' value='Edit'>
 </form>
-<a href= '{{url_for('showPeople')}}'>Cancel</a>
+<input type='submit' <a href= '{{url_for('showPeople')}}'>Cancel</a>>
 </div>
 </body>
 </html>

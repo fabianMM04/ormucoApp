@@ -11,13 +11,13 @@ Base = declarative_base()
 class Person(Base):
     __tablename__ = 'person'
 
-    name = Column(String(250), nullable=False, unique=True)
+    name = Column(String(250), nullable=False)
     id = Column(Integer, primary_key=True)
     favorite_color = Column(String(250))
     cats_or_dog = Column(String(250))
 
 
-engine = create_engine('sqlite:///lista_herramienta.db')
+engine = create_engine('sqlite:///people.db')
 
 
 Base.metadata.create_all(engine)
