@@ -4,20 +4,28 @@ from sqlalchemy import Column, ForeignKey, Integer, String, UniqueConstraint
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship, sessionmaker
 from sqlalchemy import create_engine
+from flask_sqlalchemy import SQLAlchemy
 
-Base = declarative_base()
+db = SQLAlchemy()
 
-
-class Person(Base):
+class Person(db.Model):
     __tablename__ = 'person'
 
-    name = Column(String(250), nullable=False)
-    id = Column(Integer, primary_key=True)
-    favorite_color = Column(String(250))
-    cats_or_dog = Column(String(250))
+    name = db.Column(String(250), nullable=False)
+    id = db.Column(Integer, primary_key=True)
+    favorite_color = db.Column(String(250))
+    cats_or_dog = db.Column(String(250))
 
 
-engine = create_engine('sqlite:///people.db')
+    def __init__(self, name, favorite_color, cats_or_dog):
+       self.name = name
+       self.favorite_color = favorite_color
+       self.cats_or_dog = cats_or_dog
+      
 
 
-Base.metadata.create_all(engine)
+
+
+
+
+
