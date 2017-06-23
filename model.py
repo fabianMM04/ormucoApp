@@ -9,7 +9,7 @@ db = SQLAlchemy()
 class Person(db.Model):
     __tablename__ = 'person'
 
-    name = db.Column(String(250), nullable=False)
+    name = db.Column(String(250), nullable=False, unique=True)
     id = db.Column(Integer, primary_key=True)
     favorite_color = db.Column(String(250))
     cats_or_dog = db.Column(String(250))

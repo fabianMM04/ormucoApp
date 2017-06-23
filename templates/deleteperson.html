@@ -13,7 +13,7 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='assets/bootstrap/css/bootstrap.min.css')}}">
         <link rel="stylesheet" href=" {{ url_for('static', filename='assets/font-awesome/css/font-awesome.min.css')}}">
 	<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/form-elements.css')}}">
-        <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/style.css')}}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/style.css')}}">
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -51,21 +51,22 @@
                         		</div> -->
                             </div>
                             <div class="form-bottom">
-			                    <form role="form" action="{{ url_for('deletePerson', person_id=item.id)}}" method="post" class="login-form">
+					<div class="row">
+			                    <form role="form" action="{{ url_for('deletePerson', person_id=item.id)}}" method="post">
 			                   
-								<div class="row">
+								
 									<div class="col-sm-6">
 			                        <button type="submit" class="btn" >Delete</button>
 									</div>
+					     </form>
 									
-								
-			                    </form>
+ 
+									<div class="col-sm-6">
 
-						<div class="col-sm-6">
-							<a href= '{{url_for('showPeople')}}'><button type="submit" class="btn" id="can">Cancel</button></a>
+									<a href= '{{url_for('showPeople')}}'><button type="submit" class="btn" id="can">Cancel</button></a>
 									 </div>
-
-</div>
+								</div>
+			                   
 		                    </div>
                         </div>
                     </div>
@@ -80,7 +81,7 @@
         <script src="{{ url_for('static', filename='assets/js/jquery-1.11.1.min.js')}}"></script>
         <script src="{{ url_for('static', filename='assets/bootstrap/js/bootstrap.min.js')}}"></script>
         <script src="{{ url_for('static', filename='assets/js/jquery.backstretch.min.js')}}"></script>
-        <script src="{{ url_for('static', filename='assets/js/scripts.js')}}"></script>
+<script src="{{ url_for('static', filename='assets/js/scripts.js')}}"></script>
         
         <!--[if lt IE 10]>
             <script src="assets/js/placeholder.js"></script>
